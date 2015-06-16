@@ -1,0 +1,60 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+# FieldBook
+Interface to Android Field Book App developed by Jesse Poland and Trevor Rife
+
+# Group Field Layout
+Field Layout and experiment design **Field Layout API**
+
+## Experiment Design [/brapi/design/list]
+Get list of experiments
+
+### List of experiments [GET]
+
++ Response 200 (application/json)
+
+## Experiment Design [/brapi/design/{id}]
+Select experiment for download
+
+### Design for experiment [GET]
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the experiment.
++ Response 200 (application/json)
+
+        [{
+          "id": 1, "experiment uid": "experiment name"
+        }, {
+          "id": 2, "file": "csv file of field layout"
+        }]
+
+## Traits [/brapi/traits/list]
+Get list of traits
+
+### List of traits [GET]
+
++ Response 200 (application/json)
+
+## Traits [/brapi/traits/get/{id}]
+Select from traits for download.
+
++ Parameters
+    + id (required, array, `[1],[2]`) ... array containing `id` of the Traits
+
+### Retrieve traits [GET]
++ Response 200 (application/json)
+
+        "file": "csv file of trait definitions"
+        
+## Traits [/brapi/traits/post/file]
+Trait definitions
+
++ Parameters
+    + file (required, file, ``) ... file containing new trait definitions
+
+### Create a trait [POST]
+
++ Response 200
+
+
+
