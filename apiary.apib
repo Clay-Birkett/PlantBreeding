@@ -11,6 +11,8 @@ This uses a more efficient data structure and pagination for large number of mar
 ### scores [GET]
 + Paramaters
     + id (required, string, "100, 101, 103") marker profile id
+    + page (optional, integer)
+    + pageSize (optional, integer)
 + Response 200 (application/json)
 
         [
@@ -24,6 +26,23 @@ This uses a more efficient data structure and pagination for large number of mar
             }
         ]
 
+### scores [PUT]
++ Paramaters
+    + id (required, string, "100, 101, 103") marker profile id
+    + page (optional, integer)
+    + pageSize (optional, integer)
++ Response 200 (application/json)
+
+        [
+            {"makerprofileId": ["id1","id2","id3"..]
+            },
+            "scores": 
+                [
+                    {"marker1":["AB,AA,AA"]},
+                    {"marker2":["AA,AB,AA"]}
+                ]
+            }
+        ]
 # Group Field Layout
 Field Layout and experiment design **Field Layout API**
 
