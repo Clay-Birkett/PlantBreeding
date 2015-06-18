@@ -5,24 +5,36 @@ HOST: http://www.google.com
 
 # Group Allelematrix
 
-## MarkerProfile allelematrix [/brapi/allelematrix]
+## MarkerProfile allelematrix [/brapi/allelematrix?markerprofileId=100&markerprofileId=101]
 This uses a more efficient data structure and pagination for large number of markers.
 
 ### scores [GET]
 Use GET when paramater size less than 2K
+   |Variable|Datatype|Description|Required|  
+|------|------|------|:-----:|
+|test|test|test|
 + Paramaters
-    + id (required, string, "100, 101, 103") marker profile id
+
+    + markerprofileId (required, string, list)
+        eg: markerprofileId=100&markerprofileId=101
+        
     + page (optional, integer)
     + pageSize (optional, integer)
 + Response 200 (application/json)
 
         [
-            {"makerprofileIds": ["markerprofileId1","markerprofileId2","markerprofileId3"..]
+            "metadata"  :   
+            {   
+                "pagination"    :   { "pageSize": 1000, "currentPage": 10, "totalCount": 27338, "totalPages": 28 },
+                "status"        :   [ ],
+                "queryName"     :   "mor%"
+            },
+            "makerprofileIds": ["markerprofileId1","markerprofileId2","markerprofileId3"..]
             },
             "scores": 
                 [
-                    {"markerId1":["AB,AA,AA"]},
-                    {"markerId2":["AA,AB,AA"]}
+                    {"markerId1":["AB","AA","AA"]},
+                    {"markerId2":["AA","AB","AA"]}
                 ]
             }
         ]
@@ -40,8 +52,8 @@ Use POST when paramater size greater than 2K
             },
             "scores": 
                 [
-                    {"marker1":["AB,AA,AA"]},
-                    {"marker2":["AA,AB,AA"]}
+                    {"marker1":["AB","AA","AA"]},
+                    {"marker2":["AA","AB","AA"]}
                 ]
             }
         ]
