@@ -24,12 +24,17 @@ Use GET when paramater size less than 2K
     + pageSize 
 + Response 200 (application/json)
 
-        [
+        {
             "metadata"  :   
             {   
-                "pagination"    :   { "pageSize": 1000, "currentPage": 10, "totalCount": 27338, "totalPages": 28 },
                 "status"        :   [ ],
-                "queryName"     :   "mor%"
+                "pagination"    :
+                {
+                    "pageSize": 100,
+                    "currentPage": 1,
+                    "totalCount": 1,
+                    "totalPages": 1
+                }
             },
             "makerprofileIds": ["markerprofileId1","markerprofileId2","markerprofileId3"..]
             },
@@ -38,7 +43,7 @@ Use GET when paramater size less than 2K
                     "markerId2":["AA","AB","AA"],
                     "markerId3":["AB","AB","BB"]
             }
-        ]
+        }
 
 ### scores [POST]
 Use POST when paramater size greater than 2K
