@@ -9,17 +9,19 @@ HOST: http://www.google.com
 This uses a more efficient data structure and pagination for large number of markers.
 
 ### scores [GET]
-Use GET when paramater size less than 2K
-   |Variable|Datatype|Description|Required|  
-|------|------|------|:-----:|
-|test|test|test|
-+ Paramaters
 
-    + markerprofileId (required, string, list)
-        eg: markerprofileId=100&markerprofileId=101
-        
-    + page (optional, integer)
-    + pageSize (optional, integer)
+Use GET when paramater size less than 2K
+
+|Variable|Datatype|Description|Required|  
+|-----------|------|------|:-----:|
+|markerprofileId|string, list|eg: markerprofileId=100&markerprofileId=101|required
+|page|integer||optional
+|pageSize|integer||optional
+
++ Paramaters
+    + markerprofileId
+    + page
+    + pageSize 
 + Response 200 (application/json)
 
         [
@@ -31,11 +33,10 @@ Use GET when paramater size less than 2K
             },
             "makerprofileIds": ["markerprofileId1","markerprofileId2","markerprofileId3"..]
             },
-            "scores": 
-                [
-                    {"markerId1":["AB","AA","AA"]},
-                    {"markerId2":["AA","AB","AA"]}
-                ]
+            "scores": { 
+                    "markerId1":["AB","AA","AA"],
+                    "markerId2":["AA","AB","AA"],
+                    "markerId3":["AB","AB","BB"]
             }
         ]
 
